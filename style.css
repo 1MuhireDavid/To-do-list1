@@ -1,0 +1,152 @@
+/* --- remove default styles ------ */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+    background-color: #23C08D;
+    width: 100%;
+    height: 100%;
+}
+/* To-Do app main container styles */
+.app{
+    margin: 30px auto;
+    width: 300px;
+    height: 500px;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: white;
+    overflow: auto;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.352);
+}
+/* ---- Styles to add new task ---- */
+#addNew{
+    background-color: #23c08eb1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border-radius: 5px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+#addNew i{
+    background-color: #23C08D;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+/* --- Styles for the app containers */
+
+h3{
+    text-align: center;
+}
+h4{
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* ------ Style for the Task Card  */
+#tasks{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+
+#tasks li{
+    list-style-type: square;
+    background-color: #23c08eb1;
+    padding: 5px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+#tasks .important{
+    background-color: #96c02369;
+}
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked span:first-child,
+ul li.checked span:nth-child(2),
+ul li.checked p{
+    color: #fff;
+    text-decoration: line-through;
+  }
+
+/* ---- Styles for the icons star, edit and delete buttons */
+.options{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.options i{
+    cursor: pointer;
+}
+
+
+
+/* --------------------- Modal Styles--------------- */
+#form {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    width: 400px;
+    height: 450px;
+    justify-content: space-around;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.491);
+}
+.modal-content input, textarea{
+    outline: none;
+    height: 30px;
+    border-radius: 3px;
+}
+.modal-content .m-options{
+    display: flex;
+    justify-content: end;
+    gap: 5px;
+
+}
+.modal-content .m-options button{
+    background-color: #23C08D;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+.modal-content .m-options button:hover{
+    color: #23C08D;
+    background-color: #e5e5e5;
+}
+textarea {
+    resize: none;
+  }
+
+  
+/* ----- responsiveness for phones and tables */
+  @media screen and (max-width: 415px) {
+    .app{
+        width: 100%;
+        margin-top: -9px;
+        height: 100vh;
+        
+    }
+  }

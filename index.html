@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/00e03758a4.js" crossorigin="anonymous"></script>
+    <title>To-Do List</title>
+</head>
+<body onload="filterTasks()">
+    <!-- To-Do app main container -->
+     <div class="app">
+        <h3>ToDo App</h3>
+        <!-- Add new task -->
+        <div id="addNew" onclick="openModal()">
+            <span>Add New Task</span>
+            <i class="fa-solid fa-plus"></i>
+        </div>
+        <h4>Tasks</h4>
+        <label for="categoryFilter">Filter by Category:</label>
+        <select id="categoryFilter" onchange="filterTasks()">
+            <option value="all">All</option>
+            <!-- Options will be dynamically added based on available categories -->
+        </select>
+
+        <!-- Display tasks from localStorage -->
+        <ul id="tasks"></ul>
+     </div>
+      <!-- Modal -->
+    <form id="form">
+        <div class="modal-content">
+            <!-- Form elements for task details -->
+            <span onclick="closeModal()" style="cursor: pointer; float: right;">&times;</span>
+            <h2>Add New Task</h2>
+            <label for="taskName">Task Name:</label>
+            <input type="text" id="taskName" name="taskName">
+            <label for="taskDate">Task Date:</label>
+            <input type="date" id="taskDate" name="taskDate">
+            <label for="taskDescription">Task Description:</label>
+            <textarea id="taskDescription" name="taskDescription"></textarea>
+            <label for="taskTags">Task Tags (comma-separated):</label>
+            <input type="text" id="taskTags" name="taskTags">
+            <div class="m-options">
+                <button onclick="closeModal()">Close</button>
+                <button type="submit">Add Task</button>
+            </div>
+        </div>
+    </form>
+    <footer>
+        <p style="font-style: italic; text-align: center; color: white;">DavidMuhire&copy;2023.</p>
+    </footer>
+</body>
+<script src="script.js"></script>
+</html>
