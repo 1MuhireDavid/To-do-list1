@@ -70,6 +70,9 @@ h4{
 #tasks .important{
     background-color: #96c02369;
 }
+#tasks .due-past span:nth-child(2){
+    color: red; 
+}
 
 /* When clicked on, add a background color and strike out text */
 ul li.checked span:first-child,
@@ -150,8 +153,8 @@ ul li.checked p{
 }
 textarea {
     resize: none;
+    height: 70px;
   }
-
   
 /* ----- responsiveness for phones and tables */
   @media screen and (max-width: 415px) {

@@ -4,6 +4,8 @@ let data = [];
 let editedIndex = -1; // Variable to track the index of the task being edited
 var list = document.querySelector('ul');
 
+
+// Model opening, clearing and closing
 function openModal() {
     document.getElementById('form').style.display = 'flex';
     clearForm();
@@ -77,8 +79,10 @@ const render = () => {
     taskList.innerHTML = ''; // Clear the existing list before rendering
 
     data.forEach((task, index) => {
+        const dueDatePassed = new Date(task.taskDate) < new Date();
+
         var newTask = `
-        <li class="${task.important ? 'important' : ''}">
+        <li class="${task.important ? 'important' : ''} ${dueDatePassed ? 'due-past' : ''}">
             <span style="font-weight: bold;">${task.taskName}</span>
             <span>${task.taskDate}</span>
             <p>${task.taskDescription}</p>
@@ -154,10 +158,11 @@ function filterTasks() {
 
 function renderFilteredTasks(filteredTasks) {
     taskList.innerHTML = ''; // Clear the existing list before rendering
-
+    
     filteredTasks.forEach((task, index) => {
+        const dueDatePassed = new Date(task.taskDate) < new Date();
         var newTask = `
-        <li class="${task.important ? 'important' : ''}">
+         <li class="${task.important ? 'important' : ''} ${dueDatePassed ? 'due-past' : ''}">
             <span style="font-weight: bold;">${task.taskName}</span>
             <span>${task.taskDate}</span>
             <p>${task.taskDescription}</p>
@@ -171,3 +176,10 @@ function renderFilteredTasks(filteredTasks) {
         taskList.innerHTML += newTask;
     });
 }
+document.addEventListener("DOMContentLoaded", function () {
+    // Set the minimum date dynamically
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById("taskDate").min = today;
+});
+
+// ... (rest of your script)
