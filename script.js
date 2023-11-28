@@ -144,7 +144,6 @@ list.addEventListener('click', function (ev) {
 
 function filterTasks() {
     var categoryFilter = document.getElementById('categoryFilter').value;
-    console.log(categoryFilter);
 
     // Filter tasks based on the selected category
     var filteredTasks = categoryFilter === 'all' ? data : data.filter(task => task.categories.includes(categoryFilter));
